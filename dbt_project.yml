@@ -40,20 +40,21 @@ models:
 vars:
   # Any events before this date get ignored
   start_date: '2021-06-01'
+  
   # Any domains in this list are ignored and not added ot the final list. Typically include test accounts.
-  domains_to_ignore: ('rudder.com', 'rudderabs.com', 'rudderstack.co', 'rudderlabs.slack.com',
-                      'asdfasdf.com', 'datastackshow.com', 'alumni.bits-pilani.ac.in', 'new.com')
-  # Variable to define top pages. Only these pages are considered. This can be customized as per the need and event.
-  top_tracks_sources: ('sources', 'destinations', '', 'blog', 'home',
-                      'guides', 'directory', 'docs', 'transformations', 'syncs',
-                      'integration', 'video-library','login', 'profile', 'product',
-                      'pricing')
+  domains_to_ignore: ('rudder.com', 'rudderabs.com', 'rudderstack.co', 'rudderlabs.slack.com', 'asdfasdf.com', 'test.com')
+
+  # Variable to consolidate top page calls.  You may have hundreds of pages on your site and ideally we should only consider those. Only these pages are considered. This can be customized as per the need and event.
+  top_tracks_sources: ('add_a_product', 'landing_page_a', '', 'blog', 'home', 'check-out')
+
   # If a page doesn't fall under one of the top_tracks_sources, it defaults to the below page name
   default_tracks_touch: 'others'
+  
   # These email domains are not treated as enterprise domains, and rather left alone as emails. 
   generic_domain_patterns: ('%gmail%', '%yahoo%', '%qq%', '%outlook%', '%hotmail%', '%rediff%')
+  
   # If we want our data to be at email level and not at domain level, we can use below variable by uncommenting and comment above one.
   # generic_domain_patterns: ('%*%')
-  # If any of the touches need to be dropped finally, we can do so using this parameter. 
-  touches_to_ignore: ('request-demo', 'marketing_newsletter_sent', 'marketing_campaign_sent',
-   'marketing_newsletter_clicked', 'marketing_campaign_clicked', 'signup', 'others', 'login', 'profile')
+  
+  # If any of the touches need to be dropped, we can do so using this parameter.  In this example, we have mutliple touchpoints in the same process so we will ignore those that are redundant.
+  touches_to_ignore: ('marketing_newsletter_sent', 'marketing_campaign_sent', 'marketing_newsletter_clicked', 'marketing_campaign_clicked', 'signup', 'others', 'login', 'profile')
