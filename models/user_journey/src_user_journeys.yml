@@ -1,0 +1,49 @@
+version: 2
+sources:
+ - name: webapp
+   description: All activity on Rudder webapp
+   database: rudder_webapp_data
+   schema: rudderwebapp
+   tables: 
+    - name: identifies
+    - name: pages
+ - name: marketing_website
+   description: All activity on external marketing website
+   database: rudder_autotrack_data
+   schema: autotrack
+   tables:
+    - name: identifies
+    - name: form_submit
+    - name: pages
+ - name: eric_db
+   description: All marketing email related events
+   database: eric_db
+   schema: eric_data
+   tables:
+    - name: email_opened
+    - name: email_sent
+    - name: email_link_clicked
+ - name: salesforce
+   description: All sales email related events and conversion (setting up call) event
+   database: rudder_salesforce
+   schema: public
+   tables:
+    - name: lead
+    - name: task
+ - name: analytics
+   database: analytics_db
+   schema: public
+   tables:
+    - name: agg_domain_summary
+models:
+ - name: feat_domain_touch_data
+   description: Each row corresponds to a unique touch by a user. Final output table
+   columns: 
+    - name: domain
+    - name: touch_category
+    - name: touch
+    - name: timestamp
+    - name: call_conversion_time
+    - name: row_id
+      description: Used as a unique identifier to help with upsert mode in Cloud extract
+    

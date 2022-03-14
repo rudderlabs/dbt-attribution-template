@@ -1,0 +1,1 @@
+select domain, min(timestamp) as call_conversion_time from {{ ref('stg_sales_touches') }} where event = 'sf_call' group by domain
