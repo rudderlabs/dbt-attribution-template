@@ -45,10 +45,10 @@ vars:
   domains_to_ignore: ('rudder.com', 'rudderabs.com', 'rudderstack.co', 'rudderlabs.slack.com', 'asdfasdf.com', 'test.com')
 
   # Variable to consolidate top page calls.  You may have hundreds of pages on your site and ideally we should only consider those. Only these pages are considered. This can be customized as per the need and event.
-  top_tracks_sources: ('add_a_product', 'landing_page_a', '', 'blog', 'home', 'check-out')
+  top_page_sources: ('add_a_product', 'landing_page_a', '', 'blog', 'home', 'check-out')
 
   # If a page doesn't fall under one of the top_tracks_sources, it defaults to the below page name
-  default_tracks_touch: 'others'
+  default_page_touch: 'others'
   
   # These email domains are not treated as enterprise domains, and rather left alone as emails. 
   generic_domain_patterns: ('%gmail%', '%yahoo%', '%qq%', '%outlook%', '%hotmail%', '%rediff%')
