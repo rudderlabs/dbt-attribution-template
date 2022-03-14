@@ -43,11 +43,11 @@ select
    domain,
    case
       when
-         context_page_path in {{ var('top_tracks_sources') }}
+         context_page_path in {{ var('top_page_sources') }}
       then
          context_page_path 
       else
-         '{{ var('default_tracks_touch') }}' 
+         '{{ var('default_page_touch') }}' 
    end
    as context_page_path, timestamp 
 from
